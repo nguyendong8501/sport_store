@@ -79,7 +79,7 @@ class ContentHome extends Component {
           <div className="row content-home">
             <div className="col-sm-3">
               <div className="left-sidebar">
-                <h2>Thể Loại</h2>
+                <h2>Loại</h2>
                 <div className="panel-group category-products" id="accordian">
                   {this.props.category.map((element, index) => {
                     return (
@@ -119,7 +119,7 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_1}
-                        />Giá tiền
+                        />Tất cả
                       </label>
                     </div>
                     <div className="radio">
@@ -134,7 +134,7 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_2}
-                        />0 ---- 50.000
+                        />0 -- 50.000 VNĐ
                       </label>
                     </div>
                     <div className="radio ">
@@ -149,7 +149,7 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_3}
-                        />50.000 ---- 100.000 
+                        />50.000 -- 100.000 VNĐ
                       </label>
                     </div>
                     <div className="radio ">
@@ -164,7 +164,7 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_4}
-                        />100.000 ---- 150.000
+                        />100.000 -- 150.000 VNĐ
                       </label>
                     </div>
                     <div className="radio ">
@@ -180,7 +180,7 @@ class ContentHome extends Component {
                           name="optradio"
                           checked={this.state.check_5}
                         />{" "}
-                        Trên 150.000
+                        Trên 150.000 VNĐ
                       </label>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ class ContentHome extends Component {
             <div className="col-sm-9 padding-right">
               <div className="features_items">
                 <h2 className="title text-center">
-                  {this.props.title}
+                  Sản phẩm
                 </h2>
                 {this.props.book.map((element, index) => {
                   return (
@@ -203,6 +203,7 @@ class ContentHome extends Component {
                       id={element._id}
                       name={element.name}
                       addToCart={product => this.props.addToCart(product)}
+                      
                     />
                   );
                 })}

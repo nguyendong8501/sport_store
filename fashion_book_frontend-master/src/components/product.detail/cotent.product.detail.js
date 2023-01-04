@@ -146,7 +146,7 @@ class ContentProductDetail extends Component {
           <div className="row">
             <div className="col-sm-3">
               <div className="left-sidebar">
-                <h2>Category</h2>
+                <h2>Loại</h2>
                 <div className="panel-group category-products" id="accordian">
                   {this.props.category.map((element, index) => {
                     return (
@@ -180,7 +180,7 @@ class ContentProductDetail extends Component {
                     />
                     <h2>{this.props.mproductDetail.name}</h2>
                    
-                    <img src="images/product-details/rating.png" alt="" />
+                    
 
                     <span>
                       <div>
@@ -203,14 +203,13 @@ class ContentProductDetail extends Component {
                         onClick={() => this.submitOrder()}
                         type="button"
                         className="btn btn-default cart"
-                      >
-                        <i className="fa fa-shopping-cart" />
-                        Add to cart
+                      > <i className="fa fa-plus-circle" /> Thêm vào giỏ hàng
                       </button>
+                      
                     </span>
                     <p>{this.state.noti}</p>
                     <p>
-                      <b>Category:</b> {this.props.nameCategory}
+                      <b>Loại:</b> {this.props.nameCategory}
                     </p>
                     <p>
                       <b>Release date </b>{" "}
@@ -219,12 +218,12 @@ class ContentProductDetail extends Component {
                       ).toDateString("yyyy-MM-dd")}
                     </p>
                     <p>
-                      <b>Publisher:</b> {this.props.namePublicsher}
+                      <b>Nhà cung cấp:</b> {this.props.namePublicsher}
                     </p>
                     <p>
                       <b>Author:</b> {this.props.nameAuthor}
                     </p>
-                   
+                    <img src="/assets/images/product-details/rating.png" alt="" />
                   </div>
                   <Modal
                     show={this.state.show}
@@ -250,7 +249,7 @@ class ContentProductDetail extends Component {
                
                   <div className="col-sm-12 review-product">
                     <div>
-                      <h3>Review Sách</h3>
+                      <h3>Bình luận</h3>
                     </div>
                    
                   </div>
@@ -309,7 +308,7 @@ class ContentProductDetail extends Component {
                   >
                     <div className="carousel-inner">
                       <div className="item active">
-                        {this.props.bookrelated.map((element, index) => {
+                        {/* {this.props.bookrelated.map((element, index) => {
                           return (
                             <div className="col-sm-4">
                               <div className="product-image-wrapper">
@@ -336,7 +335,7 @@ class ContentProductDetail extends Component {
                               </div>
                             </div>
                           );
-                        })}
+                        })} */}
                       </div>
                     </div>
                     <a

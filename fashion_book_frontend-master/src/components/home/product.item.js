@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
+
 const ProductItem = ({urlImg, price, name, id, book }) => (
+    
     <div className="col-sm-4">
         <div className="product-image-wrapper">
             <div className="single-products">
@@ -12,6 +15,13 @@ const ProductItem = ({urlImg, price, name, id, book }) => (
                     <h2>Giá:</h2>
                     <Link to={'/product/' + id}><h2>{new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(price)}<sup>đ</sup></h2></Link>
                     </div>
+                    <Link to ={'/product/' + id}><button className='buy' 
+                        // onClick={() => this.submitOrder()}
+                        // type="button"
+                        >
+                            <span>Mua ngay</span>
+                        </button></Link>
+                    
                     
                     
                   

@@ -4,7 +4,7 @@ const VerifyPayment = () => (
     <div className="container text-center">
 		<div className="logo-404">
 		<div className='null-cart'>
-            <img src="/assets/images/home/logo1.gif" alt="" />
+		<img style={{width:"170px",height:"170px"}} src="/assets/images/home/logo.png" alt="" />
             
           </div>
 		</div>

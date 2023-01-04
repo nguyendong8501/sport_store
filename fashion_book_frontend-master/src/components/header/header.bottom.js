@@ -73,7 +73,7 @@ class HeaderBottom extends Component {
                             <div className="search_box pull-right">
                                 <input
                                     type="text"
-                                    placeholder="Search"
+                                    placeholder="Tìm kiếm"
                                     onChange={(e) => this.props.setSearchText(e.target.value)}
                                     onKeyUp={(e) => this.handeSearch(e.keyCode)}
                                 />

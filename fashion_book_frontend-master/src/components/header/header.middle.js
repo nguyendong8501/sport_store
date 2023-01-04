@@ -29,29 +29,24 @@ class HeaderMiddle extends Component {
   }
   handlelogin = () => {
     if (this.props.islogin) {
-      return (
-        // {/* <li>
-        //             <Link to={"/cart"}>
-        //               <i className="fa fa-shopping-cart" />
-        //             </Link>
-        //           </li> */}
-        <li
-        
-          className="btn-custom"
-          onClick={() => {
-            window.location.reload();
-            this.props.logout();
-            this.props.history.push("/");
-          }}
-        >
-          {/* <Link to={"/cart"}>
-                      <i className="fa fa-shopping-cart" />
-          </Link> */}
-          <a>
-            <i className="fa fa-sign-out"/>Đăng xuất
-          </a>
-        </li>
-      );
+      // return (
+      //   // {/* <li>
+      //   //             <Link to={"/cart"}>
+      //   //               <i className="fa fa-shopping-cart" />
+      //   //             </Link>
+      //   //           </li> */}
+      //   <li className="btn-custom"
+      //     onClick={() => {
+      //       window.location.reload();
+      //       this.props.logout();
+      //       this.props.history.push("/");
+      //     }}>
+      //     <a>
+      //       <i className="fa fa-sign-out"/>Đăng xuất
+      //     </a>
+      //   </li>
+      
+      // );
     } else {
       return (
         <li>
@@ -73,15 +68,49 @@ class HeaderMiddle extends Component {
   hoverlogin = () =>{
     if(this.props.islogin){
       return (
-        <ul className='sub-menu'>
 
-<li   onClick={() => this.handleProfile()}>
-                <Link to={"/"}  >Hồ Sơ </Link>
-              </li>0
+        // <nav class="navbar navbar-default">
+		    <ul class="nav navbar-nav navbar-right">
+		
+			<li class="dropdown">
+				<a href="" data-toggle="dropdown" class="dropdown-toggle user-action">
+        {this.state.email} <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li onClick={() => this.handleProfile()}>
+                <Link to={"/"}  > <i class="fa fa-address-card"></i> Hồ sơ </Link></li>
+					<li><Link to='/purchase_history' > <i class="fa fa-credit-card"></i>Đơn mua </Link></li>
+          <li><Link to={"/cart"}><i className="fa fa-shopping-cart" />Giỏ hàng</Link></li>
+					{/* <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li> */}
+					<li className="btn-custom"
+          onClick={() => {
+            window.location.reload();
+            this.props.logout();
+            this.props.history.push("/");
+          }}>
+          {/* <Link to={"/cart"}>
+                      <i className="fa fa-shopping-cart" />
+          </Link> */}
+          <a>
+            <i className="fa fa-sign-out"/>Đăng xuất
+          </a>
+        </li>
+				</ul>
+			</li>
+		</ul>
 
-              <li><Link to='/purchase_history' >Đơn Hàng </Link></li>
+// </nav>
+
+
+
+        // <ul className='sub-menu'>
+
+        // <li onClick={() => this.handleProfile()}>
+        //         <Link to={"/"}  > <i class="fa fa-address-card"></i> Hồ Sơ </Link>
+        //       </li>
+
+        //       <li><Link to='/purchase_history' > <i class="fa fa-shopping-cart"></i>Đơn Hàng </Link></li>
           
-          </ul>
+        //   </ul>
       );
     }
   }
@@ -93,7 +122,7 @@ class HeaderMiddle extends Component {
             <div className="col-sm-4">
               <div className="logo pull-left">
                 <a href="/">
-                  <img src="/assets/images/home/logo1.gif" alt="" />
+                  <img src="/assets/images/home/logo.png" alt="" />
                 </a>
               </div>
              
@@ -102,18 +131,18 @@ class HeaderMiddle extends Component {
               <div className="shop-menu pull-right">
                 <ul className="nav navbar-nav collapse navbar-collapse">
                 <li className='dropdown'>
-                    <a className='Setting-item'>
+                    {/* <a className='Setting-item'>
                       <i className="fa fa-user dropbtn"></i>
-                    </a>
+                    </a> */}
                       {this.hoverlogin()}
                   </li>
                  
                 
-                  <li>
+                  {/* <li>
                     <Link to={"/cart"}>
                       <i className="fa fa-shopping-cart" />
                     </Link>
-                  </li>
+                  </li> */}
                   {this.handlelogin()}
                 </ul>
               </div>
