@@ -31,7 +31,7 @@ class ForgotPasswordContainer extends Component {
         if (this.isvalidEmail(this.state.email))
             this.setState({ email: '' })
         else {
-            this.setState({ notification: 'email invalid' })
+            this.setState({ notification: 'Email không hợp lệ' })
             return
         }
         this.props.actions.submitForgotPassword(this.state.email)
@@ -51,7 +51,7 @@ class ForgotPasswordContainer extends Component {
             this.setState({ verify_otp: true, notificationOTP: "" })
         }
         else if (nextProps.verify_otp === false) {
-            this.setState({ verify_otp: false, notificationOTP: 'OTP CODE INVALID' })    
+            this.setState({ verify_otp: false, notificationOTP: 'Mã OTP không hợp lệ' })    
         }
         if (nextProps.forgotpassword === true) {
             this.setState({ statusForgotPassword: true })

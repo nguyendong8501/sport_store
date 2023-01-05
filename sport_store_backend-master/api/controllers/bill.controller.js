@@ -2,7 +2,7 @@
 const bill = require("../models/bill.model");
 const cart = require("../models/cart.model");
 const randomstring = require("randomstring");
-const nodemailer = require("../utils/nodemailer");
+
 exports.addBill = async (req, res) => {
   if (
     typeof req.body.id_user === "undefined" ||
