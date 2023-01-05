@@ -1,6 +1,6 @@
 'use strict'
 const user = require('../models/user.model');
-const nodemailer = require('../utils/nodemailer');
+
 const randomstring = require('randomstring');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -36,12 +36,6 @@ exports.register = async (req, res) => {
         return;
     }
     const token = randomstring.generate();
-    // let sendEmail = await nodemailer.sendEmail(email, token);
-    // if (!sendEmail) {
-    //     res.status(500).json({ msg: 'Send email fail' });
-    //     return;
-    // }   
-
     //mã hóa mật khẩu
     // password = bcrypt.hashSync(password, 10);
     const newUser = new user({
@@ -161,11 +155,6 @@ exports.requestForgotPassword = async (req, res) => {
         return;
     }
     let token = otp.generateOTP();
-    // let sendEmail = await nodemailer.sendEmailForgotPassword(email, token);
-    // if (!sendEmail) {
-    //     res.status(500).json({ msg: 'Send email fail' });
-    //     return;
-    // }   
     userFind.token = token;
     try {
         await userFind.save();
