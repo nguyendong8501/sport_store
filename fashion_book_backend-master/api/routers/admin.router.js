@@ -9,12 +9,12 @@ const storage = multer.diskStorage({
   });
   const upload = multer({ storage: storage });
 module.exports = (app) => {
-    app.route('/admin/addbook')
-        .post(upload.single('file'), admin_controller.addBook);
-    app.route('/admin/updatebook')
-        .post(upload.single('file'), admin_controller.updateBook);
-    app.route('/admin/deletebook/:id')
-        .get(admin_controller.deletebook);
+    app.route('/admin/addproduct')
+        .post(upload.single('file'), admin_controller.addProduct);
+    app.route('/admin/updateproduct')
+        .post(upload.single('file'), admin_controller.updateProduct);
+    app.route('/admin/deleteproduct/:id')
+        .get(admin_controller.deleteproduct);
     app.route('/admin/updateuser')
         .post(admin_controller.updateUser);
     app.route('/admin/deleteuser')

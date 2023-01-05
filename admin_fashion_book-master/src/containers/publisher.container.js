@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as bookActions from "../actions/book.action";
+import * as sportActions from "../actions/sport.action";
 import Publisher from "../components/publisher/publisher";
 import NavbarContainer from "./navbar.container";
 import Slider from "./slider.container";
@@ -11,7 +11,7 @@ class PublisherContainer extends Component {
     super();
   }
   async componentWillMount() {
-    this.props.bookActions.getPublisher();
+    this.props.sportActions.getPublisher();
     let res = await this.props.userActions.auth()
         if (res === false)
             this.props.history.push('/login')
@@ -24,7 +24,7 @@ class PublisherContainer extends Component {
       this.props.history.push("/login");
     }
     if (nextProps.page !== this.props.page) {
-      this.props.bookActions.getPublisher();
+      this.props.sportActions.getPublisher();
     }
   }
   render() {
@@ -35,33 +35,33 @@ class PublisherContainer extends Component {
         <Publisher
           publisher={this.props.publisher}
           isadd={this.props.isadd}
-          addPublisher={name => this.props.bookActions.addPublisher(name)}
+          addPublisher={name => this.props.sportActions.addPublisher(name)}
           updatePublisher={(id, name) =>
-            this.props.bookActions.updatePublisher(id, name)
+            this.props.sportActions.updatePublisher(id, name)
           }
           isupdate={this.props.isupdate}
           page={this.props.page}
           totalpage={this.props.totalpage}
-          backPage={() => this.props.bookActions.publisherBackPage()}
-          nextPage={() => this.props.bookActions.publisherNextPage()}
-          setPage={page => this.props.bookActions.publisherSetPage(page)}
+          backPage={() => this.props.sportActions.publisherBackPage()}
+          nextPage={() => this.props.sportActions.publisherNextPage()}
+          setPage={page => this.props.sportActions.publisherSetPage(page)}
         />
       </section>
     );
   }
 }
 const mapStateToProps = state => ({
-  publisher: state.bookReducers.publisher.data,
-  isadd: state.bookReducers.publisher.isadd,
-  isupdate: state.bookReducers.publisher.isupdate,
-  totalpage: state.bookReducers.publisher.totalpage,
-  page: state.bookReducers.publisher.page,
+  publisher: state.sportReducers.publisher.data,
+  isadd: state.sportReducers.publisher.isadd,
+  isupdate: state.sportReducers.publisher.isupdate,
+  totalpage: state.sportReducers.publisher.totalpage,
+  page: state.sportReducers.publisher.page,
   islogin: state.userReducers.user.islogin
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    bookActions: bindActionCreators(bookActions, dispatch),
+    sportActions: bindActionCreators(sportActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch)
   };
 };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as bookActions from "../actions/book.action";
+import * as sportActions from "../actions/sport.action";
 import NavbarContainer from "./navbar.container";
 import Slider from "./slider.container";
 import * as userActions from "../actions/user.action";
@@ -11,7 +11,7 @@ class BillContainer extends Component {
     super();
   }
   async componentWillMount() {
-    this.props.bookActions.getBill("true");
+    this.props.sportActions.getBill("true");
     let res = await this.props.userActions.auth();
     if (res === false) this.props.history.push("/login");
   }
@@ -30,16 +30,16 @@ class BillContainer extends Component {
         <Slider />
         <Bill
          updateIssend={(name,id) =>
-          this.props.bookActions.updateIssend(name,id)
+          this.props.sportActions.updateIssend(name,id)
          }
           isupdate={this.props.isupdate}
           page={this.props.page}
           totalpage={this.props.totalpage}
           bill={this.props.bill}
-          backPage={() => this.props.bookActions.billBackPage()}
-          nextPage={() => this.props.bookActions.billNextPage()}
-          setPage={page => this.props.bookActions.billSetPage(page)}
-          getBill={(status => this.props.bookActions.getBill(status))}
+          backPage={() => this.props.sportActions.billBackPage()}
+          nextPage={() => this.props.sportActions.billNextPage()}
+          setPage={page => this.props.sportActions.billSetPage(page)}
+          getBill={(status => this.props.sportActions.getBill(status))}
         />
       </section>
     );
@@ -47,14 +47,14 @@ class BillContainer extends Component {
 }
 const mapStateToProps = state => ({
   islogin: state.userReducers.user.islogin,
-  totalpage: state.bookReducers.bill.totalpage,
-  page: state.bookReducers.bill.page,
-  bill: state.bookReducers.bill.data
+  totalpage: state.sportReducers.bill.totalpage,
+  page: state.sportReducers.bill.page,
+  bill: state.sportReducers.bill.data
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    bookActions: bindActionCreators(bookActions, dispatch),
+    sportActions: bindActionCreators(sportActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch)
   };
 };

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const ProductItem = ({urlImg, price, name, id, book }) => (
+const ProductItem = ({urlImg, price, name, id, sport }) => (
     
     <div className="col-sm-4">
         <div className="product-image-wrapper">

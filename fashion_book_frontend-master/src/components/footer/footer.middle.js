@@ -9,46 +9,46 @@
 								<h2>Thông Tin Về Chúng Tôi</h2>
 								<ul className="nav nav-pills nav-stacked ">
 									<li><i className='fas fa-map-marker-alt'></i><a href="#">Hà Nội City</a></li>
-									<li><i className='far fa-envelope'></i><a href="#">dimdimliulo@gmail.com</a></li>
-									<li><i className='fas fa-phone-volume'></i><a href="#">+84 234 567 89</a></li>
-									<li><i class="fab fa-facebook-f"></i><a href="#">dimdimliulo</a></li>
+									<li><i className='far fa-envelope'></i><a href="#">nguyenthedong@gmail.com</a></li>
+									<li><i className='fas fa-phone-volume'></i><a href="#">+84 257 544 74</a></li>
+									<li><i class="fab fa-facebook-f"></i><a href="#">Sport Store</a></li>
 									
 								</ul>
 							</div>
 						</div>
 						<div className="col-sm-3">
 							<div className="single-widget">
-								<h2>Sách Về Kỹ Năng</h2>
+								<h2>Máy chạy bộ</h2>
 								<ul className="nav nav-pills nav-stacked">
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Facebook marketing</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Đắc Nhân Tâm</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Nhà Giả Kim</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">1000 Câu Hỏi Vì Sao</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Cuộc Sống An Nhàn</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Máy chạy bộ Life Sport</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Máy chạy bộ Kingsport</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Máy chạy bộ Tech Fitness</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Máy chạy bộ Elip</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Máy chạy bộ Kaitashi</a></li>
 								</ul>
 							</div>
 						</div>
 						<div className="col-sm-3">
 							<div className="single-widget">
-								<h2>Sách Giáo Khoa</h2>
+								<h2>Ghế tập bụng</h2>
 								<ul className="nav nav-pills nav-stacked">
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Tiếng Anh Lớp 12</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Toán Lớp 12</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Tiếng Việt Lớp 12</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Toán Học Lớp 12</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Vật Lý Lớp 12</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Ghế tập bụng đa năng DDS-BS1108</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Ghế tập bụng đa năng DDS-104</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Ghế tập bụng đa năng BN-6403</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Ghế tập bụng đa năng MK-BS208</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Ghế tập bụng đa năng AD-177</a></li>
 								</ul>
 							</div>
 						</div>
 						<div className="col-sm-3">
 							<div className="single-widget">
-								<h2>Sách Giải Trí</h2>
+								<h2>Các loại tạ</h2>
 								<ul className="nav nav-pills nav-stacked">
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Doraemon</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Conan</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Cuộc Phiêu Lưu Của Dế Mèn</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Cuộc Tấn Công Của Titan</a></li>
-									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Thỏ Và Rùa</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Barbell</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Dumbbells</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Kettlebell</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">Weight Plates</a></li>
+									<li><i className='fas fa-long-arrow-alt-right'></i><a href="#">EZ Curl Bar</a></li>
 								</ul>
 							</div>
 						</div>

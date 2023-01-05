@@ -32,10 +32,10 @@ export const getAuthor = () => async (dispatch, getState) => {
     }
     dispatch(setAuthor(res.data.data))
 }
-export const getBook = () => async (dispatch, getState) => {
+export const getSport = () => async (dispatch, getState) => {
     let sorttype = 'release_date'
     let sortorder = '-1'
-    let sortType = getState().homeReducers.book.sortType
+    let sortType = getState().homeReducers.sport.sortType
     if (sortType === sortTypes.SORT_DAY_DECREASED) {
         sorttype = 'release_date'
         sortorder = '-1'
@@ -61,36 +61,36 @@ export const getBook = () => async (dispatch, getState) => {
         sorttype = 'view_counts'
         sortorder = '1'
     }
-    let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let branch = getState().homeReducers.sport.branch
+    let _link = 'http://localhost:8080/product/allproduct'
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = 'http://localhost:8080/product/category'
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = 'http://localhost:8080/product/publisher'
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = 'http://localhost:8080/product/author'
     }
     let res
     try {
         res = await axios.post(_link, {
-            page: getState().homeReducers.book.page,
+            page: getState().homeReducers.sport.page,
             range: null,
             sorttype: sorttype,
             sortorder: sortorder,
-            searchtext: getState().homeReducers.book.searchtext,
-            id: getState().homeReducers.book.id
+            searchtext: getState().homeReducers.sport.searchtext,
+            id: getState().homeReducers.sport.id
         })
     }
     catch (err) {
         console.log(err.response)
         return
     }
-    dispatch(setBook(res.data.data))
+    dispatch(setSport(res.data.data))
     dispatch(setTotalPage(res.data.totalPage))
 }
 
-export const setBook = (data) => ({
-    type: homeTypes.SET_BOOK,
+export const setSport = (data) => ({
+    type: homeTypes.SET_SPORT,
     data
 })
 export const setPage = (page) => ({
@@ -102,7 +102,7 @@ export const setTotalPage = (totalpage) => ({
     totalpage
 })
 export const setCategory = (data) => ({
-    type: homeTypes.SET_CATEGORY_BOOK,
+    type: homeTypes.SET_CATEGORY_SPORT,
     data
 })
 
@@ -120,15 +120,15 @@ export const setIDBranch = (id) => ({
     id
 })
 export const backPage = () => (dispatch, getState) => {
-    let page = getState().homeReducers.book.page
+    let page = getState().homeReducers.sport.page
     if(page > 1) {
         dispatch(setPage(parseInt(page) - 1))
     }
 }
 
 export const nextPage = () => (dispatch, getState) => {
-    let page = getState().homeReducers.book.page
-    let totalpage = getState().homeReducers.book.totalpage
+    let page = getState().homeReducers.sport.page
+    let totalpage = getState().homeReducers.sport.totalpage
     if(page < totalpage) {
         dispatch(setPage(parseInt(page) + 1))
     }
@@ -163,24 +163,24 @@ export const setSortType = (sortType) => async (dispatch, getState) => {
         sortorder = '1'
     }
     dispatch(setSort(sortType, sortorder))
-    let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let branch = getState().homeReducers.sport.branch
+    let _link = 'http://localhost:8080/product/allproduct'
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = 'http://localhost:8080/product/category'
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = 'http://localhost:8080/product/publisher'
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = 'http://localhost:8080/product/author'
     }
     let res
     try {
         res = await axios.post(_link, {
             page: 1,
-            range: getState().homeReducers.book.range,
+            range: getState().homeReducers.sport.range,
             sorttype: sorttype,
             sortorder: sortorder,
             searchtext: getState,
-            id: getState().homeReducers.book.id,
+            id: getState().homeReducers.sport.id,
             searchtext: undefined
         })
     }
@@ -188,7 +188,7 @@ export const setSortType = (sortType) => async (dispatch, getState) => {
         console.log(err.response)
         return
     }
-    dispatch(setBook(res.data.data))
+    dispatch(setSport(res.data.data))
     dispatch(setTotalPage(res.data.totalPage))
 }
 export const setSort= (sortType) => ({
@@ -199,7 +199,7 @@ export const setRangeType = (range) => async (dispatch, getState) => {
     dispatch(setPage(1))
     let sorttype = 'release_date'
     let sortorder = '-1'
-    let sortType = getState().homeReducers.book.sortType
+    let sortType = getState().homeReducers.sport.sortType
     if (sortType === sortTypes.SORT_DAY_DECREASED) {
         sorttype = 'release_date'
         sortorder = '-1'
@@ -225,14 +225,14 @@ export const setRangeType = (range) => async (dispatch, getState) => {
         sorttype = 'view_counts'
         sortorder = '1'
     }
-    let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let branch = getState().homeReducers.sport.branch
+    let _link = 'http://localhost:8080/product/allproduct'
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = 'http://localhost:8080/product/category'
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = 'http://localhost:8080/product/publisher'
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = 'http://localhost:8080/product/author'
     }
     let res
     try {
@@ -241,8 +241,8 @@ export const setRangeType = (range) => async (dispatch, getState) => {
             range: range,
             sorttype: sorttype,
             sortorder: sortorder,
-            id: getState().homeReducers.book.id,
-            searchtext: getState().homeReducers.book.searchtext
+            id: getState().homeReducers.sport.id,
+            searchtext: getState().homeReducers.sport.searchtext
         })
     }
     catch (err) {
@@ -251,7 +251,7 @@ export const setRangeType = (range) => async (dispatch, getState) => {
     }
     console.log(JSON.stringify(res))
     dispatch(setRange(range))
-    dispatch(setBook(res.data.data))
+    dispatch(setSport(res.data.data))
     dispatch(setTotalPage(res.data.totalPage))
 } 
 
@@ -260,7 +260,7 @@ export const setRange = (range) => ({
     range
 })
  export const setBranch = (branch) => ({
-     type: homeTypes.SET_BRANCH_SEARCH_BOOK,
+     type: homeTypes.SET_BRANCH_SEARCH_SPORT,
      branch
  })
  export const setTitle = (title) => ({
@@ -273,13 +273,13 @@ export const setRange = (range) => ({
  })
 
  export const branchClick = (branch, id) => async (dispatch, getState)=> {
-    let _link = 'http://localhost:8080/book/allbook'
+    let _link = 'http://localhost:8080/product/allproduct'
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = 'http://localhost:8080/product/category'
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = 'http://localhost:8080/product/publisher'
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = 'http://localhost:8080/product/author'
     }
     let res
     try {
@@ -296,7 +296,7 @@ export const setRange = (range) => ({
         return
     }
     dispatch(setSearchText(''))
-    dispatch(setBook(res.data.data))
+    dispatch(setSport(res.data.data))
     dispatch(setTotalPage(res.data.totalPage))
  }
 
@@ -304,7 +304,7 @@ export const setRange = (range) => ({
     dispatch(setPage(1))
     let sorttype = 'release_date'
     let sortorder = '-1'
-    let sortType = getState().homeReducers.book.sortType
+    let sortType = getState().homeReducers.sport.sortType
     if (sortType === sortTypes.SORT_DAY_DECREASED) {
         sorttype = 'release_date'
         sortorder = '-1'
@@ -330,30 +330,30 @@ export const setRange = (range) => ({
         sorttype = 'view_counts'
         sortorder = '1'
     }
-    let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let branch = getState().homeReducers.sport.branch
+    let _link = 'http://localhost:8080/product/allproduct'
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = 'http://localhost:8080/product/category'
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = 'http://localhost:8080/product/publisher'
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = 'http://localhost:8080/product/author'
     }
     let res
     try {
         res = await axios.post(_link, {
             page: 1,
-            range: getState().homeReducers.book.range,
+            range: getState().homeReducers.sport.range,
             sorttype: sorttype,
             sortorder: sortorder,
-            id: getState().homeReducers.book.id,
-            searchtext: getState().homeReducers.book.searchtext
+            id: getState().homeReducers.sport.id,
+            searchtext: getState().homeReducers.sport.searchtext
         })
     }
     catch (err) {
         console.log(err.response)
         return
     }
-    dispatch(setBook(res.data.data))
+    dispatch(setSport(res.data.data))
     dispatch(setTotalPage(res.data.totalPage))
  } 

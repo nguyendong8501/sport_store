@@ -1501,6 +1501,7 @@
         background-color: transparent;
         border: none 0;
         font-size: 16px;
+        /* color: #1a75ff; */
       }
       .menu-profile ul button:hover{
         color: #1a75ff;
@@ -2046,7 +2047,7 @@
         color: #696763;
         font-weight: normal;
         margin-right: 50px;
-        width: 20px;
+        width: 100px;
       }
       .user_option input {
         line-height: 20px;

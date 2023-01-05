@@ -7,7 +7,7 @@ cloudinary.config({
     api_secret: 'EQRbJA6t_V8c91vTGbiUp1xWPqI'
 });
 
-const book = require('../models/book.model');
+const product = require('../models/product.model');
 const user = require('../models/user.model');
 const category = require('../models/category.model');
 const author = require('../models/author.model');
@@ -26,7 +26,7 @@ const uploadImg = async (path) => {
     }
     return res.secure_url
 }
-exports.addBook = async (req, res) => {
+exports.addProduct = async (req, res) => {
     if(typeof req.file === 'undefined' 
     || typeof req.body.name === 'undefined' 
     || typeof req.body.id_category === 'undefined' 
@@ -45,7 +45,7 @@ exports.addBook = async (req, res) => {
         res.status(500).json({msg: 'server error'});
         return;
     }
-    const newBook = new book({
+    const newProduct = new product({
         id_category:id_category,
         name: name,
         price: price,
@@ -56,7 +56,7 @@ exports.addBook = async (req, res) => {
         id_author: id_author
     })
     try{
-        newBook.save()
+        newProduct.save()
     }
     catch(err) {
         res.status(500).json({msg: 'server error'});
@@ -68,7 +68,7 @@ exports.addBook = async (req, res) => {
     res.status(201).json({msg: 'success'})
     
 }
-exports.updateBook = async (req, res) => {
+exports.updateProduct = async (req, res) => {
     if( typeof req.body.name === 'undefined' 
     || typeof req.body.id === 'undefined' 
     || typeof req.body.id_category === 'undefined' 
@@ -81,16 +81,16 @@ exports.updateBook = async (req, res) => {
         return;
     }
     let { name, id, id_category, price, release_date, describe, category} = req.body;
-    let bookFind;
+    let productFind;
     try {
-        bookFind = await book.findById(id);
+        productFind = await product.findById(id);
     }
     catch (err) {
         console.log(err)
         res.status(500).json({ msg: err })
         return;
     }
-    if (bookFind === null) {
+    if (productFind === null) {
         res.status(404).json({ msg: "Not found" })
         return;
     }
@@ -105,39 +105,39 @@ exports.updateBook = async (req, res) => {
         }
     }
     if(urlImg === null)
-        urlImg = bookFind.img;
+        urlImg = productFind.img;
     
-    bookFind.id_category = id_category;
-    bookFind.name = name;
-    bookFind.price = parseFloat(price)
-    bookFind.release_date = release_date;
-    bookFind.describe = describe;
-    bookFind.category = category;
-    bookFind.img = urlImg;
-    bookFind.save((err, docs) => {
+    productFind.id_category = id_category;
+    productFind.name = name;
+    productFind.price = parseFloat(price)
+    productFind.release_date = release_date;
+    productFind.describe = describe;
+    productFind.category = category;
+    productFind.img = urlImg;
+    productFind.save((err, docs) => {
         if (err) {
             console.log(err);
         }
     });
    
-    res.status(200).json({ msg: 'success', data: bookFind });
+    res.status(200).json({ msg: 'success', data: productFind });
 }
 
-exports.deletebook = async (req, res) => {
+exports.deleteproduct = async (req, res) => {
     if (typeof req.params.id === 'undefined') {
         res.status(422).json({ msg: 'Invalid data' });
         return;
     }
-    let bookFind;
+    let productFind;
     try {
-        bookFind = await book.findById(req.params.id);
+        productFind = await product.findById(req.params.id);
     }
     catch (err) {
         console.log(err)
         res.status(500).json({ msg: err })
         return;
     }
-    bookFind.remove();
+    productFind.remove();
     res.status(200).json({ msg: 'success', });
 }
 

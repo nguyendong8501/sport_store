@@ -14,21 +14,21 @@ class Slider extends Component {
                         <li className="sub-menu">
                             <a href="javascript:" className=""> 
                                 <i className="icon_document_alt"></i>
-                                <span>Sản phẩm</span>
+                                <span>Quản lý</span>
                                 <span className="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul className="sub">
-                                <li><a className="" href="/bookmanager">Sản phẩm </a></li>
-                                <li><a className="" href="/categorymanager">Thể Loại </a></li>
-                                <li><a className="" href="/publishermanager">Nhà Xuất Bản</a></li>
-                                <li><a className="" href="/authormanager">Tác Giả</a></li>
+                                <li><a className="" href="/productmanager">Sản phẩm </a></li>
+                                <li><a className="" href="/categorymanager">Loại sản phẩm </a></li>
+                                <li><a className="" href="/publishermanager">Nhà cung cấp</a></li>
+                                <li><a className="" href="/authormanager">Hãng</a></li>
                                 <li><a className="" href="/usermanager">Người Dùng</a></li>
                              
                             </ul>
                         </li>
                         <li className="sub-menu">
                             <a href="javascript:;" className="">
-                                <i className="icon_desktop"></i>
+                                <i className="fa fa-book"></i>
                                 <span>Đơn Hàng</span>
                                 <span className="menu-arrow arrow_carrot-right"></span>
                             </a>
@@ -38,13 +38,13 @@ class Slider extends Component {
                         </li>
                         <li>
                             <a className="" href="/statistical">
-                                <i className="icon_genius"></i>
+                                <i className="fa fa-bar-chart"></i>
                                 <span>Thống Kê</span>
                             </a>
                         </li>
                        
 
-                        <li className="sub-menu">
+                        {/* <li className="sub-menu">
                             <a href="javascript:;" className="">
                                 <i className="icon_table"></i>
                                 <span>Tables</span>
@@ -53,9 +53,9 @@ class Slider extends Component {
                             <ul className="sub">
                                 <li><a className="" href="basic_table.html">Basic Table</a></li>
                             </ul>
-                        </li>
+                        </li> */}
 
-                        <li className="sub-menu">
+                        {/* <li className="sub-menu">
                             <a href="javascript:;" className="">
                                 <i className="icon_documents_alt"></i>
                                 <span>Pages</span>
@@ -68,7 +68,7 @@ class Slider extends Component {
                                 <li><a className="" href="blank.html">Blank Page</a></li>
                                 <li><a className="" href="404.html">404 Error</a></li>
                             </ul>
-                        </li>
+                        </li> */}
 
                     </ul>
       </div>

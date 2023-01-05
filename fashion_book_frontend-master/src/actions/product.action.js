@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { productTypes } from '../constants/action.types'
 import storeConfig from '../config/storage.config'
-export const getBookDetail = (id) => async (dispatch, getState) => {
+export const getSportDetail = (id) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/book/' + id)
+        res = await axios.get('http://localhost:8080/product/' + id)
     }
     catch (err) {
         return
@@ -12,15 +12,15 @@ export const getBookDetail = (id) => async (dispatch, getState) => {
     dispatch(setProductDetail(res.data.data))
 }
 
-export const getBookRelated = (id) => async (dispatch, getState) => {
+export const getSportRelated = (id) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/book/related/' + id)
+        res = await axios.get('http://localhost:8080/product/related/' + id)
     }
     catch (err) {
         return
     }
-    dispatch(setBookRelated(res.data.data))
+    dispatch(setSportRelated(res.data.data))
 }
 export const getNameCategoryByID = (id) => async (dispatch) => {
     let res
@@ -67,16 +67,16 @@ export const setNamePubliser = (name) => ({
     name
 })
 
-export const setBookRelated = (bookrelated) => ({
-    type: productTypes.SET_BOOK_RELATED,
-    bookrelated
+export const setSportRelated = (sportrelated) => ({
+    type: productTypes.SET_SPORT_RELATED,
+    sportrelated
 })
 export const setNameAuthor = (name) => ({
     type: productTypes.SET_NAME_AUTHOR,
     name
 })
 
-export const submitComment = (name, email, comment, id_book) => async (dispatch, getState) => {
+export const submitComment = (name, email, comment, id_sport) => async (dispatch, getState) => {
     let id = null
     if (storeConfig.getUser() && storeConfig.getUser().id && storeConfig.getUser().id)
         id = storeConfig.getUser().id
@@ -84,7 +84,7 @@ export const submitComment = (name, email, comment, id_book) => async (dispatch,
     try {
         res = await axios.post('http://localhost:8080/comment', {
             id_user: id,
-            id_book: id_book,
+            id_sport: id_sport,
             name: name,
             comment: comment
         })
@@ -93,7 +93,7 @@ export const submitComment = (name, email, comment, id_book) => async (dispatch,
         console.log(JSON.stringify(err.response))
         return
     }
-    dispatch(getCommentByIDBook(id_book))
+    dispatch(getCommentByIDSport(id_sport))
 }
 export const setTotalPage = (totalpage) => ({
     type: productTypes.SET_TOTAL_PAGE,
@@ -117,11 +117,11 @@ export const nextPage = () => (dispatch, getState) => {
         dispatch(setPage(parseInt(page) + 1))
     }
 }
-export const getCommentByIDBook = (id) => async (dispatch, getState) => {
+export const getCommentByIDSport = (id) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/comment/book', {
-             id_book: id,
+        res = await axios.post('http://localhost:8080/comment/product', {
+             id_sport: id,
              page: getState().productReducers.product.page
             })
     }

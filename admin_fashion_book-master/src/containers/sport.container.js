@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as bookActions from "../actions/book.action";
-import Book from "../components/book/book";
+import * as sportActions from "../actions/sport.action";
+import Sport from "../components/sport/sport";
 import NavbarContainer from "./navbar.container";
 import Slider from "./slider.container";
 import * as userActions from "../actions/user.action";
-class BookContainer extends Component {
+class SportContainer extends Component {
   async componentWillMount() {
-    this.props.bookActions.getCategory();
-    this.props.bookActions.getPublisher();
-    this.props.bookActions.getBook();
-    this.props.bookActions.getAuthor();
+    this.props.sportActions.getCategory();
+    this.props.sportActions.getPublisher();
+    this.props.sportActions.getSport();
+    this.props.sportActions.getAuthor();
     let res = await this.props.userActions.auth();
     if (res === false) this.props.history.push("/login");
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.page !== this.props.page) {
-      this.props.bookActions.getBook();
+      this.props.sportActions.getSport();
     }
     if (
       nextProps.islogin !== this.props.islogin &&
@@ -31,20 +31,20 @@ class BookContainer extends Component {
       <section id="container" className="">
         <NavbarContainer />
         <Slider />
-        <Book
-          book={this.props.book}
+        <Sport
+          sport={this.props.sport}
           totalpage={this.props.totalpage}
           page={this.props.page}
           category={this.props.category}
           publisher={this.props.publisher}
           author={this.props.author}
-          deleteBook={id => this.props.bookActions.deleteBook(id)}
-          backPage={() => this.props.bookActions.backPage()}
-          nextPage={() => this.props.bookActions.nextPage()}
-          setPage={page => this.props.bookActions.setPage(page)}
+          deleteSport={id => this.props.sportActions.deleteSport(id)}
+          backPage={() => this.props.sportActions.backPage()}
+          nextPage={() => this.props.sportActions.nextPage()}
+          setPage={page => this.props.sportActions.setPage(page)}
           isadd={this.props.isadd}
           isupdate={this.props.isupdate}
-          addBook={(
+          addSport={(
             id_category,
             name,
             price,
@@ -54,7 +54,7 @@ class BookContainer extends Component {
             id_author,
             file
           ) =>
-            this.props.bookActions.addBook(
+            this.props.sportActions.addSport(
               id_category,
               name,
               price,
@@ -65,7 +65,7 @@ class BookContainer extends Component {
               file
             )
           }
-          updateBook={(
+          updateSport={(
             id,
             name,
             id_category,
@@ -76,7 +76,7 @@ class BookContainer extends Component {
             id_author,
             file
           ) =>
-            this.props.bookActions.updateBook(
+            this.props.sportActions.updateSport(
               id,
               name,
               id_category,
@@ -94,24 +94,24 @@ class BookContainer extends Component {
   }
 }
 const mapStateToProps = state => ({
-  book: state.bookReducers.book.data,
-  totalpage: state.bookReducers.book.totalpage,
-  page: state.bookReducers.book.page,
-  category: state.bookReducers.category.data,
-  publisher: state.bookReducers.publisher.data,
-  author: state.bookReducers.author.data,
-  isadd: state.bookReducers.book.isadd,
-  isupdate: state.bookReducers.book.isupdate,
+  sport: state.sportReducers.sport.data,
+  totalpage: state.sportReducers.sport.totalpage,
+  page: state.sportReducers.sport.page,
+  category: state.sportReducers.category.data,
+  publisher: state.sportReducers.publisher.data,
+  author: state.sportReducers.author.data,
+  isadd: state.sportReducers.sport.isadd,
+  isupdate: state.sportReducers.sport.isupdate,
   islogin: state.userReducers.user.islogin
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    bookActions: bindActionCreators(bookActions, dispatch),
+    sportActions: bindActionCreators(sportActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch)
   };
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BookContainer);
+)(SportContainer);

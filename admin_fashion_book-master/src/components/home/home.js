@@ -72,8 +72,7 @@ class Home extends Component {
                     <h2>
                       <i className="fa fa-flag-o red" />
                       <strong>
-                        Digital sales number(percent percentage of 1000
-                        products)
+                        Các sản phẩm bán chạy
                       </strong>
                     </h2>
                     <div className="panel-actions">
@@ -93,6 +92,7 @@ class Home extends Component {
                       <thead>
                         <tr>
                           <th />
+                          
                           <th>Tên Sản Phẩm</th>
                           <th>Giá Tiền</th>
                           <th>Số Lượng Đã Bán</th>

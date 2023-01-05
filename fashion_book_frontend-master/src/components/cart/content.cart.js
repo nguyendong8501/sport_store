@@ -65,7 +65,7 @@ class ContentCart extends Component {
     let check = true;
     if (this.state.name.length < 3) {
       this.setState({
-        notiName: "Name invalid"
+        notiName: "Tên không hợp lệ"
       });
       check = false;
     } else {
@@ -75,7 +75,7 @@ class ContentCart extends Component {
     }
     if (!this.isvaidPhone(this.state.phone)) {
       this.setState({
-        notiPhone: "Phone invalid"
+        notiPhone: "Số điện thoại không hợp lệ"
       });
       check = false;
     } else {
@@ -83,7 +83,7 @@ class ContentCart extends Component {
     }
    
     if (this.state.address === "") {
-      this.setState({ notiDetailAddress: "Address invalid" });
+      this.setState({ notiDetailAddress: "Địa chỉ không hợp lệ" });
       check = false;
     } else {
       this.setState({ notiDetailAddress: "" });
@@ -114,11 +114,11 @@ class ContentCart extends Component {
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
-                    <td className="image">Itemm</td>
+                    <td className="image">Mặt hàng</td>
                     <td className="description" />
-                    <td className="price">Price</td>
-                    <td className="quantity">Quantity</td>
-                    <td className="total">Total</td>
+                    <td className="price">Giá</td>
+                    <td className="quantity">Số lượng</td>
+                    <td className="total">Tổng tiền</td>
                     <td />
                   </tr>
                 </thead>
@@ -207,10 +207,10 @@ class ContentCart extends Component {
                   <ul>
                    
                     <li>
-                      Phí Vận Chuyển<span>0<sup>đ</sup> </span>
+                      Phí Vận Chuyển:<span>0<sup>đ</sup> </span>
                     </li>
                     <li>
-                      Tổng Tiền <span>  {new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(this.state.total)}<sup>đ</sup></span>
+                      Tổng Tiền: <span>  {new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(this.state.total)}<sup>đ</sup></span>
                     </li>
                   </ul>
                   <Modal
@@ -221,7 +221,7 @@ class ContentCart extends Component {
                   >
                     <Modal.Header closeButton>
                       <Modal.Title id="contained-modal-title">
-                        Notification
+                        Thông báo
                       </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>Vui Lòng Đăng Nhập Để Thanh Toán</Modal.Body>
@@ -230,7 +230,7 @@ class ContentCart extends Component {
                         <a>Cancel</a>
                       </Button>
                       <Button onClick={this.handleHide}>
-                        <Link to="/login_register">Login</Link>
+                        <Link to="/login_register">Đăng nhập</Link>
                       </Button>
                     </Modal.Footer>
                   </Modal>
@@ -241,7 +241,7 @@ class ContentCart extends Component {
                 <div className="chose_area">
                   <ul class="user_option">
                     <li>
-                      <label>Name</label>
+                      <label>Họ và tên</label>
                       <input
                         type="text"
                         value={this.state.name}
@@ -250,7 +250,7 @@ class ContentCart extends Component {
                       <span>{this.state.notiName}</span>
                     </li>
                     <li>
-                      <label>Phone</label>
+                      <label>Số điện thoại</label>
                       <input
                         type="text"
                         value={this.state.phone}
@@ -262,7 +262,7 @@ class ContentCart extends Component {
                  
                   <ul className="user_option">
                     <li>
-                      <label>Address</label>
+                      <label>Địa chỉ</label>
                       <input
                         type="text"
                         value={this.state.address}
@@ -281,10 +281,10 @@ class ContentCart extends Component {
                   >
                     <Modal.Header closeButton>
                       <Modal.Title id="contained-modal-title">
-                        Notification
+                        Thông báo
                       </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Đặt Hàng Thành Công, Vui Lòng Vào Đơn Hàng Để Xem Chi Tiết</Modal.Body>
+                    <Modal.Body>Đặt Hàng Thành Công, Vui Lòng Vào Đơn Mua Để Xem Chi Tiết</Modal.Body>
                     <Modal.Footer>
                       <Button onClick={() => {this.reset()
                          window.location.reload()}}>
@@ -301,7 +301,7 @@ class ContentCart extends Component {
                   >
                     <Modal.Header closeButton>
                       <Modal.Title id="contained-modal-title">
-                        Notification
+                        Thông báo
                       </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>Đặt Hàng Thất Bại</Modal.Body>

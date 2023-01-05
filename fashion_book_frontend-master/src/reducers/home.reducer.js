@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 
 const category = (state = { data: [] }, action) => {
     switch (action.type) {
-        case homeTypes.SET_CATEGORY_BOOK: {
+        case homeTypes.SET_CATEGORY_SPORT: {
             return {
                 ...state,
                 data: action.data
@@ -35,12 +35,12 @@ const author = (state = {data: []}, action) => {
     }
 }
 
-const book = (state = {
-    data: [], page: 1, totalpage: null, title: 'ALL BOOK', searchtext: '',
+const sport = (state = {
+    data: [], page: 1, totalpage: null, title: 'ALL SPORT', searchtext: '',
     sortType: sortTypes.SORT_DAY_DECREASED, sortOrder: -1
 }, action) => {
     switch (action.type) {
-        case homeTypes.SET_BOOK: {
+        case homeTypes.SET_SPORT: {
             return {
                 ...state,
                 data: action.data
@@ -77,7 +77,7 @@ const book = (state = {
                 title: action.title
             }
         }
-        case homeTypes.SET_BRANCH_SEARCH_BOOK: {
+        case homeTypes.SET_BRANCH_SEARCH_SPORT: {
             return {
                 ...state,
                 branch: action.branch
@@ -89,8 +89,8 @@ const book = (state = {
                 id: action.id
             }
         }
-        case homeTypes.RESET_BOOK: {
-            return { data: [], page: 1, totalpage: null, title: 'ALL BOOK',
+        case homeTypes.RESET_SPORT: {
+            return { data: [], page: 1, totalpage: null, title: 'ALL SPORT',
             sortType: sortTypes.SORT_DAY_DECREASED, sortOrder: -1}
         }
         case homeTypes.SET_SEARCH_TEXT: {
@@ -106,6 +106,6 @@ const book = (state = {
 export default combineReducers({
     category,
     publisher,
-    book, 
+    sport, 
     author
 })

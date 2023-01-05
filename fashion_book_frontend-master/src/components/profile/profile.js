@@ -22,9 +22,9 @@ class Profile extends Component {
   }
   componentWillMount() {
     if (this.props.isupdate) {
-      this.setState({ notiUpdateInfor: "UPDATE SUCCESS" });
+      this.setState({ notiUpdateInfor: "Cập nhật thành công" });
     } else if (this.props.isupdate === false) {
-      this.setState({ notiUpdateInfor: "UPDATE FAIL" });
+      this.setState({ notiUpdateInfor: "Cập nhật thất bại" });
     } else {
       this.setState({ notiUpdateInfor: "" });
     }

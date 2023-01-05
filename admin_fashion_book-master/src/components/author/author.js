@@ -95,7 +95,7 @@ class Author extends Component {
               onClick={() => this.props.addAuthor(this.state.name)}
               className="btn-custom"
             >
-              Add
+              Thêm
             </button>
             <button
               disabled
@@ -104,13 +104,13 @@ class Author extends Component {
               }
               className="btn-custom"
             >
-              Update
+              Cập nhật
             </button>
             <button
               onClick={() => this.reset()}
               className="btn-custom"
             >
-              Reset
+              Làm mới
             </button>
           </div>
         </div>
@@ -124,7 +124,7 @@ class Author extends Component {
               onClick={() => this.props.addAuthor(this.state.name)}
               className="btn-custom"
             >
-              Add
+              Thêm
             </button>
             <button
               onClick={() =>
@@ -132,13 +132,13 @@ class Author extends Component {
               }
               className="btn-custom"
             >
-              Update
+              Cập nhật
             </button>
             <button
               onClick={() => this.reset()}
               className="btn-custom"
             >
-              Reset
+              Làm mới
             </button>
           </div>
         </div>
@@ -164,13 +164,13 @@ class Author extends Component {
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang chủ</Link>
               </li>
               <li>
-                <i className="fa fa-table" />Table
+                <i className="fa fa-table" />Danh mục
               </li>
               <li>
-                <i className="fa fa-th-list" />Author Manager
+                <i className="fa fa-th-list" />Quản lý hãng
               </li>
             </ol>
           </div>
@@ -178,15 +178,15 @@ class Author extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Advanced Table</header>
+              <header className="panel-heading">Bảng</header>
               <table className="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
                     <th>
-                      <i className="icon_profile" /> Name
+                      <i className="icon_profile" /> Tên hãng sản xuất
                     </th>
                     <th>
-                      <i className="icon_cogs" /> Action
+                      <i className="icon_cogs" /> Hoạt động
                     </th>
                   </tr>
                   {this.props.author.map((element, index) => {
@@ -222,13 +222,13 @@ class Author extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Form validations</header>
+              <header className="panel-heading">Biểu mẫu</header>
               <div className="panel-body">
                 <div className="form">
                   <div className="form-validate form-horizontal">
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Name <span className="required">*</span>
+                        Tên hãng sản xuất <span className="required">*:</span>
                       </label>
                       <div className="col-lg-10">
                         <input

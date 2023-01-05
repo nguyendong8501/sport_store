@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-class Book extends Component {
+class Sport extends Component {
   constructor() {
     super();
     this.state = {
       pagination: [],
-      book: null,
+      sport: null,
       file: null,
       imagePreviewUrl: null,
       curr: "add",
-      category: "Thể Loại",
-      publisher: "Nhà Xuất Bản",
-      author: "Tác Giả",
+      category: "Loại sản phẩm",
+      publisher: "Nhà cung cấp",
+      author: "Hãng sản xuất",
       name: "",
       release_date: null,
       price: "",
@@ -39,9 +39,9 @@ class Book extends Component {
       }
       this.setState({ pagination: tmp });
     }
-    if (nextProps.book !== null) {
+    if (nextProps.sport !== null) {
       this.setState({
-        imagePreviewUrl: nextProps.book.img
+        imagePreviewUrl: nextProps.sport.img
       });
     }
     if (nextProps.isadd === true) {
@@ -115,7 +115,7 @@ class Book extends Component {
     if (count > 1) return false;
     return !isNaN(Number.parseFloat(str));
   };
-  submitAddBook = () => {
+  submitAddSport = () => {
     const {
       id_category,
       name,
@@ -128,7 +128,7 @@ class Book extends Component {
     } = this.state;
     if (name.length <= 0) {
       this.setState({
-        noti: "Name invalid"
+        noti: "Tên không hợp lệ"
       });
       return;
     } else {
@@ -138,7 +138,7 @@ class Book extends Component {
     }
     if (release_date === null) {
       this.setState({
-        noti: "Day invalid"
+        noti: "Ngày nhập không hợp lệ"
       });
       return;
     } else {
@@ -148,7 +148,7 @@ class Book extends Component {
     }
     if (!this.invalidPrice(price)) {
       this.setState({
-        noti: "Price invalid"
+        noti: "Giá không hợp lệ"
       });
       return;
     } else {
@@ -158,7 +158,7 @@ class Book extends Component {
     }
     if (id_category === "") {
       this.setState({
-        noti: "Category invalid"
+        noti: "Loại sản phẩm không hợp lệ"
       });
       return;
     } else {
@@ -168,7 +168,7 @@ class Book extends Component {
     }
     if (id_author === "") {
       this.setState({
-        noti: "Author invalid"
+        noti: "Hãng sản xuất không hợp lệ"
       });
       return;
     } else {
@@ -179,7 +179,7 @@ class Book extends Component {
 
     if (id_nsx === "") {
       this.setState({
-        noti: "Publisher invalid"
+        noti: "Nhà cung cấp không hợp lệ"
       });
       return;
     } else {
@@ -189,7 +189,7 @@ class Book extends Component {
     }
     if (file === null) {
       this.setState({
-        noti: "File invalid"
+        noti: "File tải lên không hợp lệ"
       });
       return;
     } else {
@@ -197,7 +197,7 @@ class Book extends Component {
         noti: ""
       });
     }
-    this.props.addBook(
+    this.props.addSport(
       id_category,
       name,
       price,
@@ -208,7 +208,7 @@ class Book extends Component {
       file
     );
   };
-  submitUpdateBook = () => {
+  submitUpdateSport = () => {
     const {
       id_category,
       name,
@@ -292,7 +292,7 @@ class Book extends Component {
         noti: ""
       });
     }
-    this.props.updateBook(
+    this.props.updateSport(
       id,
       name,
       id_category,
@@ -310,7 +310,7 @@ class Book extends Component {
         <div className="form-group">
           <div className="col-lg-offset-2 col-lg-10">
             <button
-              onClick={() => this.submitAddBook()}
+              onClick={() => this.submitAddSport()}
               className="btn-custom"
               type="submit"
             >
@@ -332,7 +332,7 @@ class Book extends Component {
             </button>
             <button
               className="btn-custom"
-              onClick={() => this.submitUpdateBook()}
+              onClick={() => this.submitUpdateSport()}
               type="button"
             >
               Cập nhật
@@ -466,22 +466,22 @@ class Book extends Component {
                 <tbody>
                   <tr>
                     <th>
-                      <i className="icon_profile" /> Tên sản phẩm
+                      <i className="fa fa-paper-plane-o" /> Tên sản phẩm
                     </th>
                     <th>
                       <i className="icon_calendar" /> Ngày nhập
                     </th>
                     <th>
-                      <i className="icon_mail_alt" /> Giá
+                      <i className="fa fa-money" /> Giá
                     </th>
                     <th>
-                      <i className="icon_pin_alt" /> Miêu tả
+                      <i className="fa fa-pencil" /> Miêu tả
                     </th>
                     <th>
-                      <i className="icon_cogs" /> Thao tác
+                      <i className="icon_cogs" /> Hoạt động
                     </th>
                   </tr>
-                  {this.props.book.map((element, index) => {
+                  {this.props.sport.map((element, index) => {
                     return (
                       <tr>
                         <td>{element.name}</td>
@@ -522,7 +522,7 @@ class Book extends Component {
                               <i className="icon_check_alt2" />
                             </a>
                             <a
-                              onClick={() => this.props.deleteBook(element._id)}
+                              onClick={() => this.props.deleteSport(element._id)}
                               className="btn btn-danger"
                             >
                               <i className="icon_close_alt2" />
@@ -541,9 +541,9 @@ class Book extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Form validations</header>
+              <header className="panel-heading">Biểu mẫu</header>
               <div className="panel-body">
-                <div className="form" id="from-book">
+                <div className="form" id="from-sport">
                   <div
                     className="form-validate form-horizontal"
                     id="feedback_form"
@@ -633,7 +633,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment " className="control-label col-lg-2">
-                        Thể Loại
+                        Loại:
                       </label>
                       <div className="btn-group col-lg-10">
                         <button
@@ -651,7 +651,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment" className="control-label col-lg-2">
-                        Tác Giả
+                        Hãng sản xuất:
                       </label>
                       <div className="btn-group col-lg-10">
                         <button
@@ -669,7 +669,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment" className="control-label col-lg-2">
-                        Nhà Xuất Bản
+                        Nhà cung cấp
                       </label>
                       <div className="btn-group col-lg-10">
                         <button
@@ -687,7 +687,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment" className="control-label col-lg-2">
-                        Image upload{" "}
+                        Tải ảnh{" "}
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -704,7 +704,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment" className="control-label col-lg-2">
-                        Image
+                        Ảnh
                       </label>
                       <div className="col-lg-10">
                         <img
@@ -729,4 +729,4 @@ class Book extends Component {
     );
   }
 }
-export default Book;
+export default Sport;

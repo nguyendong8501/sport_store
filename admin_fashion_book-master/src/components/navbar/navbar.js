@@ -5,9 +5,9 @@ class Navbar extends Component {
         return (
             <header className="header dark-bg">
                 <div className="toggle-nav">
-                    <div className="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i className="icon_menu"></i></div>
+                    <div className="icon-reorder tooltips" data-original-title="Danh mục" data-placement="bottom"><i className="icon_menu"></i></div>
                 </div>
-                <a href="/" className="logo">BookShop <span className="lite"></span></a>
+                <a href="/" className="logo">SportStore <span className="lite"></span></a>
                 <div className="nav search-row" id="top_menu">
                     <ul className="nav top-menu">
                         <li>
@@ -213,32 +213,32 @@ class Navbar extends Component {
                         <li className="dropdown">
                             <a data-toggle="dropdown" className="dropdown-toggle" href="#">
                                
-                                <span className="username">BookShop</span>
+                                <span className="username">SportStore</span>
                                 <b className="caret"></b>
                             </a>
                             <ul className="dropdown-menu extended logout">
                                 <div className="log-arrow-up"></div>
                                 <li className="eborder-top">
-                                    <a href="#"><i className="icon_profile"></i> My Profile</a>
+                                    <a href="#"><i className="icon_profile"></i> Hồ sơ</a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="#"><i className="icon_mail_alt"></i> My Inbox</a>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                     <a href="#"><i className="icon_clock_alt"></i> Timeline</a>
                                 </li>
                                 <li>
                                     <a href="#"><i className="icon_chat_alt"></i> Chats</a>
-                                </li>
+                                </li> */}
                                 <li>
                                     <a onClick={() => this.props.logout()}><i className="icon_key_alt"></i> Log Out</a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="documentation.html"><i className="icon_key_alt"></i> Documentation</a>
                                 </li>
                                 <li>
                                     <a href="documentation.html"><i className="icon_key_alt"></i> Documentation</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </li>
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as bookActions from "../actions/book.action";
+import * as sportActions from "../actions/sport.action";
 import Author from "../components/author/author";
 import NavbarContainer from "./navbar.container";
 import Slider from "./slider.container";
@@ -11,7 +11,7 @@ class AuthorContainer extends Component {
     super();
   }
   async componentWillMount() {
-    this.props.bookActions.getAuthor();
+    this.props.sportActions.getAuthor();
     let res = await this.props.userActions.auth();
     if (res === false) this.props.history.push("/login");
   }
@@ -23,7 +23,7 @@ class AuthorContainer extends Component {
       this.props.history.push("/login");
     }
     if (nextProps.page !== this.props.page) {
-      this.props.bookActions.getAuthor();
+      this.props.sportActions.getAuthor();
     }
   }
   render() {
@@ -34,33 +34,33 @@ class AuthorContainer extends Component {
         <Author
           author={this.props.author}
           isadd={this.props.isadd}
-          addAuthor={name => this.props.bookActions.addAuthor(name)}
+          addAuthor={name => this.props.sportActions.addAuthor(name)}
           updateAuthor={(id, name) =>
-            this.props.bookActions.updateAuthor(id, name)
+            this.props.sportActions.updateAuthor(id, name)
           }
           isupdate={this.props.isupdate}
           page={this.props.page}
           totalpage={this.props.totalpage}
-          backPage={() => this.props.bookActions.authorBackPage()}
-          nextPage={() => this.props.bookActions.authorNextPage()}
-          setPage={page => this.props.bookActions.authorSetPage(page)}
+          backPage={() => this.props.sportActions.authorBackPage()}
+          nextPage={() => this.props.sportActions.authorNextPage()}
+          setPage={page => this.props.sportActions.authorSetPage(page)}
         />
       </section>
     );
   }
 }
 const mapStateToProps = state => ({
-  author: state.bookReducers.author.data,
-  isadd: state.bookReducers.author.isadd,
-  isupdate: state.bookReducers.author.isupdate,
+  author: state.sportReducers.author.data,
+  isadd: state.sportReducers.author.isadd,
+  isupdate: state.sportReducers.author.isupdate,
   islogin: state.userReducers.user.islogin,
-  totalpage: state.bookReducers.author.totalpage,
-  page: state.bookReducers.author.page
+  totalpage: state.sportReducers.author.totalpage,
+  page: state.sportReducers.author.page
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    bookActions: bindActionCreators(bookActions, dispatch),
+    sportActions: bindActionCreators(sportActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch)
   };
 };

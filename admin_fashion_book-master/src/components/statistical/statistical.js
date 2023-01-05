@@ -94,7 +94,7 @@ class Statistical extends Component {
     let year = this.state.year;
     let check = true;
     if (year.length === 0) {
-      this.setState({ notiGetYear: "Please enter Year" });
+      this.setState({ notiGetYear: "Vui lòng chọn năm" });
       return;
     } else {
       this.setState({ notiGetYear: "" });
@@ -106,14 +106,14 @@ class Statistical extends Component {
       }
     }
     if (check === false) {
-      this.setState({ notiGetYear: "Year invalid" });
+      this.setState({ notiGetYear: "Năm không hợp lệ" });
       return;
     } else {
       this.setState({ notiGetYear: "" });
     }
     if (parseInt(year) < 1990 || parseInt(year) > 3000) {
       this.setState({
-        notiGetYear: "Year range 1990 - 3000"
+        notiGetYear: "Năm từ 1990 - nay"
       });
       return;
     } else {
@@ -127,7 +127,7 @@ class Statistical extends Component {
     let check = true;
     if (year.length === 0) {
       this.setState({
-        notiYearQuauter: "Please enter year"
+        notiYearQuauter: "Vui lòng chọn năm"
       });
       check = false;
     } else {
@@ -137,7 +137,7 @@ class Statistical extends Component {
     }
     if (quauter.length === 0) {
       this.setState({
-        notiQuauter: "Please enter quauter"
+        notiQuauter: "Vui lòng quý"
       });
       check = false;
     } else {
@@ -156,14 +156,14 @@ class Statistical extends Component {
       }
     }
     if (check === false) {
-      this.setState({ notiYearQuauter: "Year invalid" });
+      this.setState({ notiYearQuauter: "Năm không hợp lệ" });
       return;
     } else {
       this.setState({ notiYearQuauter: "" });
     }
     if (parseInt(year) < 1990 || parseInt(year) > 3000) {
       this.setState({
-        notiYearQuauter: "Year range 1990 - 3000"
+        notiYearQuauter: "Năm từ 1990 - nay"
       });
       return;
     } else {
@@ -178,14 +178,14 @@ class Statistical extends Component {
       }
     }
     if (check === false) {
-      this.setState({ notiQuauter: "Quauter invalid" });
+      this.setState({ notiQuauter: "Quý không hợp lệ" });
       return;
     } else {
       this.setState({ notiQuauter: "" });
     }
     if (parseInt(quauter) < 1 || parseInt(quauter) > 4) {
       this.setState({
-        notiQuauter: "Year range 1 - 4"
+        notiQuauter: "Quý từ 1 - 4"
       });
       return;
     } else {
@@ -200,15 +200,15 @@ class Statistical extends Component {
           <div class="row">
             <div class="col-lg-12">
               <h3 class="page-header">
-                <i class="fa fa-table" /> STATISTICAL
+                <i class="fa fa-table" /> THỐNG KÊ
               </h3>
               <ol class="breadcrumb">
                 <li>
                   <i class="fa fa-home" />
-                  <a href="index.html">Home</a>
+                  <a href="index.html">Trang chủ</a>
                 </li>
                 <li>
-                  <i class="fa fa-table" />Statistical
+                  <i class="fa fa-table" />Thống kê
                 </li>
               </ol>
             </div>
@@ -217,8 +217,8 @@ class Statistical extends Component {
             <div className="col-lg-12">
               <section className="panel">
                 <header className="panel-heading">
-                  STATISTICS BY DAY
-                  <span style={{ marginLeft: "50px" }}>Select Day</span>
+                  Thống kê theo ngày
+                  <span style={{ marginLeft: "50px" }}>Chọn ngày</span>
                   <input
                     type="date"
                     style={{
@@ -260,8 +260,8 @@ class Statistical extends Component {
             <div className="col-lg-12">
               <section className="panel">
                 <header className="panel-heading">
-                  STATISTICS BY MONTH
-                  <span style={{ marginLeft: "50px" }}>Select Month</span>
+                  Thống kê theo tháng
+                  <span style={{ marginLeft: "50px" }}>Chọn tháng</span>
                   <input
                     type="month"
                     style={{
@@ -303,8 +303,8 @@ class Statistical extends Component {
             <div className="col-lg-12">
               <section className="panel">
                 <header className="panel-heading">
-                  STATISTICS BY YEAR
-                  <span style={{ marginLeft: "50px" }}>Select Year</span>
+                  Thống kê theo năm
+                  <span style={{ marginLeft: "50px" }}>Chọn năm</span>
                   <input
                     type="text"
                     style={{

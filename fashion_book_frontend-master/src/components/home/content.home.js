@@ -193,10 +193,10 @@ class ContentHome extends Component {
                 <h2 className="title text-center">
                   Sản phẩm
                 </h2>
-                {this.props.book.map((element, index) => {
+                {this.props.sport.map((element, index) => {
                   return (
                     <ProductItem
-                      book={element}
+                      sport={element}
                       urlImg={element.img}
                       price={element.price}
                       describe={element.describe}

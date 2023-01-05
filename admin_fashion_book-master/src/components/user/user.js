@@ -191,7 +191,7 @@ class User extends Component {
     } = this.state;
     if (!this.isvalidEmail(email)) {
       this.setState({
-        noti: "Email invalid"
+        noti: "Email không hợp lệ"
       });
       return;
     } else {
@@ -201,7 +201,7 @@ class User extends Component {
     }
     if (password.length < 6) {
       this.setState({
-        noti: "Password invalid"
+        noti: "Mật khẩu phải > 6 kí tự"
       });
       return;
     } else {
@@ -211,7 +211,7 @@ class User extends Component {
     }
     if (firstName.length < 3) {
       this.setState({
-        noti: "First name invalid"
+        noti: "Họ và tên đệm không hợp lệ"
       });
       return;
     } else {
@@ -221,7 +221,7 @@ class User extends Component {
     }
     if (lastName.length < 3) {
       this.setState({
-        noti: "Last name invalid"
+        noti: "Tên không hợp lệ"
       });
       return;
     } else {
@@ -231,7 +231,7 @@ class User extends Component {
     }
     if (address.length < 3) {
       this.setState({
-        noti: "Address invalid"
+        noti: "Địa chỉ không hợp lệ"
       });
       return;
     } else {
@@ -241,7 +241,7 @@ class User extends Component {
     }
     if (!this.isvalidPhone(this.state.phone_number)) {
       this.setState({
-        noti: "Phone invalid"
+        noti: "Số điện thoại không hợp lệ"
       });
       return;
     } else {
@@ -272,13 +272,13 @@ class User extends Component {
         <div className="form-group">
           <div className="col-lg-offset-2 col-lg-10">
             <button onClick={() => this.addUser()} className="btn-custom">
-              Add
+              Thêm
             </button>
             <button disabled className="btn-custom">
-              Update
+              Cập nhật
             </button>
             <button onClick={() => this.reset()} className="btn-custom">
-              Reset
+              Làm mới
             </button>
           </div>
         </div>
@@ -292,13 +292,13 @@ class User extends Component {
               onClick={() => this.addUser()}
               className="btn-custom"
             >
-              Add
+              Thêm
             </button>
             <button onClick={() => this.updateUser()} className="btn-custom">
-              Update
+              Cập nhật
             </button>
             <button onClick={() => this.reset()} className="btn-custom">
-              Reset
+              Làm mới
             </button>
           </div>
         </div>
@@ -325,7 +325,7 @@ class User extends Component {
       return (
         <div className="form-group ">
           <label for="cname" className="control-label col-lg-2">
-            Password <span className="required">*</span>
+            Mật khẩu <span className="required">*</span>
           </label>
           <div className="col-lg-10">
             <input
@@ -349,7 +349,7 @@ class User extends Component {
       return (
         <div className="form-group ">
           <label for="cname" className="control-label col-lg-2">
-            Password <span className="required">*</span>
+            Mật khẩu <span className="required">*</span>
           </label>
           <div className="col-lg-10">
             <input
@@ -435,13 +435,13 @@ class User extends Component {
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang chủ</Link>
               </li>
               <li>
-                <i className="fa fa-table" />Table
+                <i className="fa fa-table" />Danh mục
               </li>
               <li>
-                <i className="fa fa-th-list" />User Manager
+                <i className="fa fa-th-list" />Quản lý người dùng
               </li>
             </ol>
           </div>
@@ -449,7 +449,7 @@ class User extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Advanced Table</header>
+              <header className="panel-heading">Bảng</header>
               <table className="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
@@ -460,19 +460,19 @@ class User extends Component {
                       <i className="icon_profile" />Admin
                     </th>
                     <th>
-                      <i className="icon_profile" />First name
+                      <i className="icon_profile" />Họ và tên đệm
                     </th>
                     <th>
-                      <i className="icon_profile" />Last name
+                      <i className="icon_profile" />Tên
                     </th>
                     <th>
-                      <i className="icon_profile" />Address
+                      <i className="icon_profile" />Địa chỉ
                     </th>
                     <th>
-                      <i className="icon_profile" />PhoneNumber
+                      <i className="icon_profile" />Số điện thoại
                     </th>
                     <th>
-                      <i className="icon_cogs" />Action
+                      <i className="icon_cogs" />Hoạt động
                     </th>
                   </tr>
                   {this.props.user.map((element, index) => {
@@ -567,7 +567,7 @@ class User extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Form validations</header>
+              <header className="panel-heading">Biểu mẫu</header>
               <div className="panel-body">
                 <div className="form">
                   <div className="form-validate form-horizontal">
@@ -575,7 +575,7 @@ class User extends Component {
                     {this.renderPassword()}
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        First Name <span className="required" />
+                        Họ và tên đệm: <span className="required" />
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -596,7 +596,7 @@ class User extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Last Name<span className="required" />
+                        Tên: <span className="required" />
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -617,7 +617,7 @@ class User extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Address<span className="required" />
+                        Địa chỉ<span className="required" />
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -638,7 +638,7 @@ class User extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Phone number<span className="required" />
+                        Số điện thoại<span className="required" />
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -674,7 +674,7 @@ class User extends Component {
                               onClick={() => this.setState({ is_admin: false })}
                               type="radio"
                               name="optradio"
-                            />User
+                            />Khách
                           </label>
                         </form>
                       </div>

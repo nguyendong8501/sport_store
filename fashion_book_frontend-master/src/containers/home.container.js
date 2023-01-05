@@ -18,18 +18,18 @@ class HomeContainer extends React.Component {
         this.props.actions.auth()
         this.props.homeActions.getCategory()
         this.props.homeActions.getPublisher()
-        this.props.homeActions.getBook()
+        this.props.homeActions.getSport()
         this.props.homeActions.getAuthor()
     }
     componentWillReceiveProps(nextProps) {
         if(nextProps.page !== this.props.page) {
-            this.props.homeActions.getBook()
+            this.props.homeActions.getSport()
         }
     }
     
     render() {
-        const {category, publisher, book, totalpage} = this.props
-        if(category !== null && publisher !== null && book !== null && totalpage !== null) {
+        const {category, publisher, sport, totalpage} = this.props
+        if(category !== null && publisher !== null && sport !== null && totalpage !== null) {
             return (
                 <div>
                     <Home
@@ -37,7 +37,7 @@ class HomeContainer extends React.Component {
                         logout={() => this.props.actions.logout()}
                         category={this.props.category}
                         publisher={this.props.publisher}
-                        book={this.props.book}
+                        sport={this.props.sport}
                         totalpage={this.props.totalpage}
                         backPage={() => this.props.homeActions.backPage()}
                         nextPage={() => this.props.homeActions.nextPage()}
@@ -73,12 +73,12 @@ const mapStateToProps = state => ({
     category: state.homeReducers.category.data,
     publisher: state.homeReducers.publisher.data,
     author: state.homeReducers.author.data,
-    book: state.homeReducers.book.data, 
-    totalpage: state.homeReducers.book.totalpage,
-    page: state.homeReducers.book.page, 
-    sortType: state.homeReducers.book.sortType,
-    title: state.homeReducers.book.title,
-    branch: state.homeReducers.book.branch
+    sport: state.homeReducers.sport.data, 
+    totalpage: state.homeReducers.sport.totalpage,
+    page: state.homeReducers.sport.page, 
+    sortType: state.homeReducers.sport.sortType,
+    title: state.homeReducers.sport.title,
+    branch: state.homeReducers.sport.branch
 })
 
 const mapDispatchToProps = dispatch =>{

@@ -15,9 +15,9 @@ class ProductDetailContainer extends Component {
         this.props.actions.auth()
         this.props.homeActions.getCategory()
         this.props.homeActions.getPublisher()
-        this.props.productActions.getBookDetail(this.props.match.params.id)
-        this.props.productActions.getBookRelated(this.props.match.params.id)
-        this.props.productActions.getCommentByIDBook(this.props.match.params.id)
+        this.props.productActions.getSportDetail(this.props.match.params.id)
+        this.props.productActions.getSportRelated(this.props.match.params.id)
+        this.props.productActions.getCommentByIDSport(this.props.match.params.id)
         
     }
     componentWillReceiveProps(nextProps) {
@@ -27,7 +27,7 @@ class ProductDetailContainer extends Component {
             this.props.productActions.getNameAuthorByID(nextProps.mproductDetail.id_author)
         }
         if(nextProps.page !== this.props.page) {
-            this.props.productActions.getCommentByIDBook(this.props.match.params.id)
+            this.props.productActions.getCommentByIDSport(this.props.match.params.id)
         }
 
     }
@@ -47,10 +47,10 @@ class ProductDetailContainer extends Component {
                         sortType={this.props.sortType}
                         setSortType={(value) => this.props.homeActions.setSortType(value)}
                         searchTextSubmit={() => this.props.homeActions.searchTextSubmit()}
-                        bookrelated={this.props.bookrelated}
+                        sportrelated={this.props.sportrelated}
                         logout={() => this.props.actions.logout()}
-                        id_book={this.props.match.params.id}
-                        submitComment={(name, email, comment, id_book) => this.props.productActions.submitComment(name, email, comment, id_book)}
+                        id_sport={this.props.match.params.id}
+                        submitComment={(name, email, comment, id_sport) => this.props.productActions.submitComment(name, email, comment, id_sport)}
                         comment={this.props.comment}
                         nameAuthor={this.props.nameAuthor}
                         addToCart={(product) => this.props.productActions.addToCart(product)}
@@ -81,7 +81,7 @@ const mapStateToProps = state => ({
     namePublicsher: state.productReducers.product.namePublicsher,
     nameAuthor: state.productReducers.product.nameAuthor,
     islogin: state.userReducers.login.islogin,
-    bookrelated: state.productReducers.product.bookrelated,
+    sportrelated: state.productReducers.product.sportrelated,
     comment: state.productReducers.product.comment,
     totalpage: state.productReducers.product.totalpage,
     page: state.productReducers.product.page,

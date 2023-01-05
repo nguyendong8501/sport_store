@@ -105,7 +105,7 @@ class ContentProductDetail extends Component {
       this.state.name,
       this.state.email,
       this.state.comment,
-      this.props.id_book
+      this.props.id_sport
     );
     this.setState({ comment: "" });
   };
@@ -212,7 +212,7 @@ class ContentProductDetail extends Component {
                       <b>Loại:</b> {this.props.nameCategory}
                     </p>
                     <p>
-                      <b>Release date </b>{" "}
+                      <b>Ngày nhập </b>{" "}
                       {new Date(
                         this.props.mproductDetail.release_date
                       ).toDateString("yyyy-MM-dd")}
@@ -221,7 +221,7 @@ class ContentProductDetail extends Component {
                       <b>Nhà cung cấp:</b> {this.props.namePublicsher}
                     </p>
                     <p>
-                      <b>Author:</b> {this.props.nameAuthor}
+                      <b>Hãng sản xuất:</b> {this.props.nameAuthor}
                     </p>
                     <img src="/assets/images/product-details/rating.png" alt="" />
                   </div>
@@ -308,7 +308,7 @@ class ContentProductDetail extends Component {
                   >
                     <div className="carousel-inner">
                       <div className="item active">
-                        {/* {this.props.bookrelated.map((element, index) => {
+                        {/* {this.props.sportrelated.map((element, index) => {
                           return (
                             <div className="col-sm-4">
                               <div className="product-image-wrapper">

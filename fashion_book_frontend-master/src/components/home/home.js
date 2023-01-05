@@ -7,7 +7,7 @@ import FooterTop from '../footer/footer.top'
 import FooterMiddle from '../footer/footer.middle'
 import FooterBottom from '../footer/footer.bottom'
 const Home = ({ islogin, logout, category,
-    publisher, book, totalpage, backPage,
+    publisher, sport, totalpage, backPage,
     nextPage, setPage, page, sortType, setSortType,
     setRangeType, title, setTitle, setBranch, branch, 
     setSearchText, author, setIDBranch, branchClick, history,
@@ -30,7 +30,7 @@ const Home = ({ islogin, logout, category,
             <ContentHome
                 category={category}
                 publisher={publisher}
-                book={book}
+                sport={sport}
                 totalpage={totalpage}
                 backPage={() => backPage()}
                 nextPage={() => nextPage()}

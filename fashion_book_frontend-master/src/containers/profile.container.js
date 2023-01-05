@@ -7,6 +7,7 @@ import * as userActions from "../actions/user.action";
 import * as profileActions from "../actions/profile.action";
 import Loading from "../components/loading/loading";
 import storeConfig from "../config/storage.config";
+
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);

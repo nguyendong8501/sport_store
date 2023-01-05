@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { bookTypes } from '../constants/action.types'
-export const getBook = () => async (dispatch, getState) => {
+import { sportTypes } from '../constants/action.types'
+export const getSport = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/book/allbook', {
-            page: getState().bookReducers.book.page,
+        res = await axios.post('http://localhost:8080/product/allproduct', {
+            page: getState().sportReducers.sport.page,
             range: null
         })
     }
@@ -12,62 +12,62 @@ export const getBook = () => async (dispatch, getState) => {
         console.log(err)
         return
     }
-    dispatch(setBook(res.data.data))
+    dispatch(setSport(res.data.data))
     dispatch(setTotalPage(res.data.totalPage))
 }
-export const setBook = (data) => ({
-    type: bookTypes.SET_BOOK,
+export const setSport = (data) => ({
+    type: sportTypes.SET_SPORT,
     data
 })
 export const setPage = (page) => ({
-    type: bookTypes.SET_PAGE,
+    type: sportTypes.SET_PAGE,
     page
 })
 export const setTotalPage = (totalpage) => ({
-    type: bookTypes.SET_TOTAL_PAGE,
+    type: sportTypes.SET_TOTAL_PAGE,
     totalpage
 })
 export const authorSetPage = (page) => ({
-    type: bookTypes.AUTHOR_SET_PAGE,
+    type: sportTypes.AUTHOR_SET_PAGE,
     page
 })
 export const authorSetTotalPage = (totalpage) => ({
-    type: bookTypes.AUTHOR_SET_TOTAL_PAGE,
+    type: sportTypes.AUTHOR_SET_TOTAL_PAGE,
     totalpage
 })
 export const categorySetPage = (page) => ({
-    type: bookTypes.CATEGORY_SET_PAGE,
+    type: sportTypes.CATEGORY_SET_PAGE,
     page
 })
 export const categorySetTotalPage = (totalpage) => ({
-    type: bookTypes.CATEGORY_SET_TOTAL_PAGE,
+    type: sportTypes.CATEGORY_SET_TOTAL_PAGE,
     totalpage
 })
 export const publisherSetPage = (page) => ({
-    type: bookTypes.PUBLISHER_SET_PAGE,
+    type: sportTypes.PUBLISHER_SET_PAGE,
     page
 })
 export const publisherSetTotalPage = (totalpage) => ({
-    type: bookTypes.PUBLISHER_SET_TOTAL_PAGE,
+    type: sportTypes.PUBLISHER_SET_TOTAL_PAGE,
     totalpage
 })
-export const deleteBook = (id) => async(dispatch, getState) => {
+export const deleteSport = (id) => async(dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/admin/deletebook/' +id)
+        res = await axios.get('http://localhost:8080/admin/deleteproduct/' +id)
     }
     catch (err) {
         console.log(err)
         return
     }
     console.log(res)
-    dispatch(getBook())
+    dispatch(getSport())
 }
 
 export const getCategory = () => async (dispatch, getState) =>  {
     let res
     try {
-        res = await axios.get('http://localhost:8080/category/all/' + getState().bookReducers.category.page)
+        res = await axios.get('http://localhost:8080/category/all/' + getState().sportReducers.category.page)
     }
     catch (err) {
         return
@@ -79,7 +79,7 @@ export const getCategory = () => async (dispatch, getState) =>  {
 export const getPublisher = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/publisher/all/' + getState().bookReducers.publisher.page)
+        res = await axios.get('http://localhost:8080/publisher/all/' + getState().sportReducers.publisher.page)
     }
     catch (err) {
         return
@@ -91,7 +91,7 @@ export const getPublisher = () => async (dispatch, getState) => {
 export const getAuthor = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/author/all/' + getState().bookReducers.author.page)
+        res = await axios.get('http://localhost:8080/author/all/' + getState().sportReducers.author.page)
     }
     catch(err) {
         return
@@ -101,33 +101,33 @@ export const getAuthor = () => async (dispatch, getState) => {
 }
 
 export const setCategory = (data) => ({
-    type: bookTypes.SET_CATEGORY_BOOK,
+    type: sportTypes.SET_CATEGORY_SPORT,
     data
 })
 
 export const setPublisher = (data) => ({
-    type: bookTypes.SET_PUBLISHSER,
+    type: sportTypes.SET_PUBLISHSER,
     data
 })
 
 export const setAuthor = (data) => ({
-    type: bookTypes.SET_AUTHOR,
+    type: sportTypes.SET_AUTHOR,
     data
 })
 export const addCategorySuccess = () =>({
-    type: bookTypes.ADD_CATEGORY_SUCCESS
+    type: sportTypes.ADD_CATEGORY_SUCCESS
 })
 export const addCategotyFail = () => ({
-    type: bookTypes.ADD_CATEGORY_FAIL
+    type: sportTypes.ADD_CATEGORY_FAIL
 })
 export const updateCategorySuccess = () => ({
-    type: bookTypes.UPDATE_CATEGORY_SUCCESS
+    type: sportTypes.UPDATE_CATEGORY_SUCCESS
 })
 export const updateCategoryFail = () => ({
-    type: bookTypes.UPDATE_CATEGORY_FAIL
+    type: sportTypes.UPDATE_CATEGORY_FAIL
 })
 export const resetCategory = () => ({
-    type: bookTypes.RESET_CATEGORY
+    type: sportTypes.RESET_CATEGORY
 })
 export const addCategory =  (name) => async (dispatch, getState) => {
     dispatch(resetCategory())
@@ -161,19 +161,19 @@ export const updateCategory =  (id, name) => async (dispatch, getState) => {
     dispatch(getCategory())
 }
 export const addAuthorSuccess = () =>({
-    type: bookTypes.ADD_AUTHOR_SUCCESS
+    type: sportTypes.ADD_AUTHOR_SUCCESS
 })
 export const addAuthorFail = () => ({
-    type: bookTypes.ADD_AUTHOR_FAIL
+    type: sportTypes.ADD_AUTHOR_FAIL
 })
 export const updateAuthorSuccess = () => ({
-    type: bookTypes.UPDATE_AUTHOR_SUCCESS
+    type: sportTypes.UPDATE_AUTHOR_SUCCESS
 })
 export const updateAuthorFail = () => ({
-    type: bookTypes.UPDATE_AUTHOR_FAIL
+    type: sportTypes.UPDATE_AUTHOR_FAIL
 })
 export const resetAuthor = () => ({
-    type: bookTypes.RESET_AUTHOR
+    type: sportTypes.RESET_AUTHOR
 })
 export const addAuthor =  (name) => async (dispatch, getState) => {
     dispatch(resetAuthor())
@@ -207,19 +207,19 @@ export const updateAuthor =  (id, name) => async (dispatch, getState) => {
     dispatch(getAuthor())
 }
 export const addPublisherSuccess = () =>({
-    type: bookTypes.ADD_PUBLISHER_SUCCESS
+    type: sportTypes.ADD_PUBLISHER_SUCCESS
 })
 export const addPublisherFail = () => ({
-    type: bookTypes.ADD_PUBLISHER_FAIL
+    type: sportTypes.ADD_PUBLISHER_FAIL
 })
 export const updatePublisherSuccess = () => ({
-    type: bookTypes.UPDATE_PUBLISHER_SUCCESS
+    type: sportTypes.UPDATE_PUBLISHER_SUCCESS
 })
 export const updatePublisherFail = () => ({
-    type: bookTypes.UPDATE_PUBLISHER_FAIL
+    type: sportTypes.UPDATE_PUBLISHER_FAIL
 })
 export const resetPublisher = () => ({
-    type: bookTypes.RESET_PUBLISHER
+    type: sportTypes.RESET_PUBLISHER
 })
 export const addPublisher =  (name) => async (dispatch, getState) => {
     dispatch(resetPublisher())
@@ -253,88 +253,88 @@ export const updatePublisher =  (id, name) => async (dispatch, getState) => {
     dispatch(getPublisher())
 }
 export const backPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.book.page
+    let page = getState().sportReducers.sport.page
     if(page > 1) {
         dispatch(setPage(parseInt(page) - 1))
     }
 }
 
 export const nextPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.author.page
-    let totalpage = getState().bookReducers.author.totalpage
+    let page = getState().sportReducers.author.page
+    let totalpage = getState().sportReducers.author.totalpage
     if(page < totalpage) {
         dispatch(setPage(parseInt(page) + 1))
     }
 }
 export const authorBackPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.book.page
+    let page = getState().sportReducers.sport.page
     if(page > 1) {
         dispatch(authorSetPage(parseInt(page) - 1))
     }
 }
 
 export const authorNextPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.author.page
-    let totalpage = getState().bookReducers.author.totalpage
+    let page = getState().sportReducers.author.page
+    let totalpage = getState().sportReducers.author.totalpage
     if(page < totalpage) {
         dispatch(authorSetPage(parseInt(page) + 1))
     }
 }
 export const categoryBackPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.category.page
+    let page = getState().sportReducers.category.page
     if(page > 1) {
         dispatch(categorySetPage(parseInt(page) - 1))
     }
 }
 
 export const categoryNextPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.category.page
-    let totalpage = getState().bookReducers.category.totalpage
+    let page = getState().sportReducers.category.page
+    let totalpage = getState().sportReducers.category.totalpage
     if(page < totalpage) {
         dispatch(categorySetPage(parseInt(page) + 1))
     }
 }
 export const publisherBackPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.publisher.page
+    let page = getState().sportReducers.publisher.page
     if(page > 1) {
         dispatch(publisherSetPage(parseInt(page) - 1))
     }
 }
 
 export const publisherNextPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.publisher.page
-    let totalpage = getState().bookReducers.publisher.totalpage
+    let page = getState().sportReducers.publisher.page
+    let totalpage = getState().sportReducers.publisher.totalpage
     if(page < totalpage) {
         dispatch(publisherSetPage(parseInt(page) + 1))
     }
 }
 export const billBackPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.bill.page
+    let page = getState().sportReducers.bill.page
     if(page > 1) {
         dispatch(billSetPage(parseInt(page) - 1))
     }
 }
 
 export const billNextPage = () => (dispatch, getState) => {
-    let page = getState().bookReducers.bill.page
-    let totalpage = getState().bookReducers.bill.totalpage
+    let page = getState().sportReducers.bill.page
+    let totalpage = getState().sportReducers.bill.totalpage
     if(page < totalpage) {
         dispatch(billSetPage(parseInt(page) + 1))
     }
 }
-export const addBookSuccess = () => ({
-    type: bookTypes.ADD_BOOK_SUCCESS
+export const addSportSuccess = () => ({
+    type: sportTypes.ADD_SPORT_SUCCESS
 })
-export const addBookFail = () => ({
-    type: bookTypes.ADD_BOOK_FAIL
+export const addSportFail = () => ({
+    type: sportTypes.ADD_SPORT_FAIL
 })
-export const updateBookSuccess = () => ({
-    type: bookTypes.UPDATE_BOOK_SUCCESS
+export const updateSportSuccess = () => ({
+    type: sportTypes.UPDATE_SPORT_SUCCESS
 })
-export const updateBookFail = () => ({
-    type: bookTypes.UPDATE_BOOK_FAIL
+export const updateSportFail = () => ({
+    type: sportTypes.UPDATE_SPORT_FAIL
 })
-export const addBook = (id_category, name, price, release_date, describe, id_nsx, id_author, file) =>
+export const addSport = (id_category, name, price, release_date, describe, id_nsx, id_author, file) =>
  async (dispatch, getState) => {
     let data = new FormData()
     data.append('file', file)
@@ -347,16 +347,16 @@ export const addBook = (id_category, name, price, release_date, describe, id_nsx
     data.append('id_author', id_author)
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/addbook', data)
+        res = await axios.post('http://localhost:8080/admin/addproduct', data)
     }
     catch(err) {
-        dispatch(addBookFail())
+        dispatch(addSportFail())
         return
     } 
-    dispatch(addBookSuccess())
-    dispatch(getBook())
+    dispatch(addSportSuccess())
+    dispatch(getSport())
 }
-export const updateBook = (id, name, id_category, price, release_date, describe, id_nsx, id_author, file) => async (dispatch, getState) => {
+export const updateSport = (id, name, id_category, price, release_date, describe, id_nsx, id_author, file) => async (dispatch, getState) => {
     let data = new FormData()
     data.append('file', file)
     data.append('id', id)
@@ -369,25 +369,25 @@ export const updateBook = (id, name, id_category, price, release_date, describe,
     data.append('id_author', id_author)
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/updatebook', data)
+        res = await axios.post('http://localhost:8080/admin/updateproduct', data)
     }
     catch(err) {
-        dispatch(updateBookFail())
+        dispatch(updateSportFail())
         return
     } 
-    dispatch(updateBookSuccess())
-    dispatch(getBook())
+    dispatch(updateSportSuccess())
+    dispatch(getSport())
 }
 export const setBill = (data) => ({
-    type: bookTypes.BILL_SET_DATA,
+    type: sportTypes.BILL_SET_DATA,
     data
 })
 export const billSetPage = (page) => ({
-    type: bookTypes.BILL_SET_PAGE,
+    type: sportTypes.BILL_SET_PAGE,
     page
 })
 export const billSetTotalPage = (totalpage) => ({
-    type: bookTypes.BILL_SET_TOTAL_PAGE,
+    type: sportTypes.BILL_SET_TOTAL_PAGE,
     totalpage
 })
 export const getBill = (status) => async(dispatch, getState) => {
@@ -410,10 +410,10 @@ export const getBill = (status) => async(dispatch, getState) => {
 
 }
 export const updateIssendSuccess = () => ({
-    type: bookTypes.UPDATE_ISSEND_SUCCESS
+    type: sportTypes.UPDATE_ISSEND_SUCCESS
 })
 export const updateIssendFail = () => ({
-    type: bookTypes.UPDATE_ISSEND_FAIL
+    type: sportTypes.UPDATE_ISSEND_FAIL
 })
 
 export const updateIssend = (name,id) => async (dispatch, getState) => {

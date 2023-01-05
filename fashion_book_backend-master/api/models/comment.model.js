@@ -7,7 +7,7 @@ const comment = new Schema ({
         type: String,
         default: 'no_user'
     },
-    id_book: {
+    id_product: {
         type: String,
         required: [true, "can't be blank"]
     },

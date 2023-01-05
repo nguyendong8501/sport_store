@@ -73,13 +73,13 @@ class Bill extends Component {
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang chủ</Link>
               </li>
               <li>
-                <i className="fa fa-table" />Table
+                <i className="fa fa-table" />Bảng
               </li>
               <li>
-                <i className="fa fa-th-list" />Bill Manager
+                <i className="fa fa-th-list" />Quản lý đơn hàng
               </li>
             </ol>
           </div>
@@ -88,9 +88,9 @@ class Bill extends Component {
           <div className="col-lg-12">
             <section className="panel">
               <header className="panel-heading">
-                Advanced Table
+                Bảng
                 <span style={{ marginLeft: "50px", marginRight: "30px" }}>
-                  Select Day
+                  Chọn trạng thái đơn hàng
                 </span>
                 <select onChange={e => this.props.getBill(e.target.value)}>
                   <option
@@ -99,7 +99,7 @@ class Bill extends Component {
                     selected
                     style={{ display: "none" }}
                   >
-                    Status
+                    Trạng thái
                   </option>
                   <option value="99">Đang Chờ Xử Lý</option>
                   <option value="0">Đang Giao Hàng</option>
@@ -110,11 +110,12 @@ class Bill extends Component {
               <table className="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Date</th>
-                    <th>Products</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Sản phẩm</th>
+                    <th>Ngày mua</th>
+                    <th>Trạng thái đơn hàng</th>
                   </tr>
                   {this.props.bill.map((element, index) => {
                     return (
@@ -134,7 +135,7 @@ class Bill extends Component {
                                     <div className='product'>
                                       <div className='img'><img src={item.img}></img> </div>
                                       <div className='product-content'>
-                                        <div>{item.name }</div>
+                                        <div>{"Tên sản phẩm: " + item.name }</div>
                                         <div>{"Số Lượng: " + item.count}</div>
                                         <div className='product-price'><p>Giá: {new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(item.price)}<sup>đ</sup> </p> </div>
                                       </div>
@@ -146,7 +147,7 @@ class Bill extends Component {
                           
                         </td>
                        
-                        <td className='product-price'><p><span>{new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(element.total)}<sup>đ</sup></span> </p></td>
+                        <td >{new Date(element.date).toDateString("yyyy-MM-dd")}</td>
                         <td><select onChange={e => this.props.updateIssend(e.target.value,element._id)}>
                                   
                           <option
@@ -155,7 +156,7 @@ class Bill extends Component {
                             selected
                             style={{ display: "none" }}
                           >
-                           
+            
                           </option>
                           <option value='99' >Đang Chờ Xử Lý</option>
                           <option value='0'>Đang Giao Hàng</option>

@@ -6,9 +6,9 @@ const FooterTop = () => (
             <div className="row">
                 <div className="col-sm-3">
                     <div className="companyinfo">
-                        <h2><span>BookShop</span></h2>
-                        <p>Bookshop là một website chuyên bán sách, bao gồm nhiều thể loại đa dạng và phong phú 
-                            , chúng tôi muốn cung cấp các trải nhiệm tuyệt vời nhất đên khách hàng
+                        <h2><span>SportStore</span></h2>
+                        <p>SportStore là một website chuyên bán các dụng cụ tập thể dục thể thao, bao gồm nhiều thể loại đa dạng và phong phú
+                            , chúng tôi cam kết đem lại các mặt hàng chất lượng
                         </p>
                     </div>
                 </div>

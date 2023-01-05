@@ -8,7 +8,7 @@ const cors = require('cors');
 const userRouter = require('./api/routers/user.router');
 const categoryRouter = require('./api/routers/categoy.router');
 const publisherRouter = require('./api/routers/publisher.router');
-const bookRouter = require('./api/routers/book.router');
+const productRouter = require('./api/routers/product.router');
 const authorRouter = require('./api/routers/author.router');
 const commentRouter = require('./api/routers/comment.router');
 const billRouter = require('./api/routers/bill.router');
@@ -57,13 +57,13 @@ app.use(cors())
 userRouter(app);
 categoryRouter(app);
 publisherRouter(app);
-bookRouter(app);
+productRouter(app);
 authorRouter(app);
 commentRouter(app)
 billRouter(app);
 cartRouter(app);
 adminRouter(app);
 addressVnRouter(app);
-app.get('/', (req, res) => {res.send('welcome to fashtion_book')})
+app.get('/', (req, res) => {res.send('welcome to fashtion_sport')})
 
 app.listen(port, () => console.log("server running on port " + port));

@@ -1,7 +1,7 @@
 'use strict'
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const book = new Schema({
+const product = new Schema({
     id_category: {
         type: String,
         required: [true, "can't be blank"],
@@ -54,4 +54,4 @@ const book = new Schema({
         }
     }
 });
-module.exports = mongoose.model('book', book);
+module.exports = mongoose.model('product', product);
